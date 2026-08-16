@@ -4,13 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Blue Dragon Plumbing provides plumbing services in Austin, Texas and surrounding communities. Call (512) 947-2491 for service.">
+  <meta name="robots" content="index, follow">
+
   <title>Blue Dragon Plumbing | Austin Plumbing Services</title>
+
+  <link rel="canonical" href="https://hakimdev-tech.github.io/blue-dragon-demo/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blue Dragon Plumbing | Austin Plumbing Services">
+  <meta property="og:description" content="Blue Dragon Plumbing provides plumbing services in Austin, Texas and surrounding communities. Call (512) 947-2491 for service.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hakimdev-tech.github.io/blue-dragon-demo/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Structured Data — minimal, only verified information -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    "name": "Blue Dragon Plumbing",
+    "telephone": "+1-512-947-2491",
+    "url": "https://hakimdev-tech.github.io/blue-dragon-demo/",
+    "areaServed": {
+      "@type": "City",
+      "name": "Austin"
+    },
+    "serviceType": ["Leak Repair", "Drain Cleaning", "Water Heater Service", "Fixture Repair"]
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css">
 <base target="_blank">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Contact Bar -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar__inner">
       <span class="top-bar__text">Local plumbing service in Austin</span>
@@ -21,13 +50,13 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header__inner">
-      <a class="brand" href="#" aria-label="Blue Dragon Plumbing home">
+      <a class="brand" href="/" aria-label="Blue Dragon Plumbing home">
         <span class="brand__name">Blue Dragon Plumbing</span>
       </a>
 
-      <nav class="main-nav" aria-label="Primary navigation">
+      <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
         <a href="#services">Services</a>
-        <a href="#service-area">Service Area</a>
+        <a href="#service-area">Service Areas</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -35,41 +64,83 @@
         Call Now
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
-        <span class="menu-toggle__bar"></span>
-        <span class="menu-toggle__bar"></span>
-        <span class="menu-toggle__bar"></span>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Hero -->
     <section class="hero" id="hero">
-      <div class="container hero__inner">
+      <div class="container hero__grid">
         <div class="hero__content">
-          <h1>Plumbing Services in Austin, TX</h1>
+          <h1>Austin Plumbing Services</h1>
           <p class="hero__lead">
-            Blue Dragon Plumbing provides residential plumbing service throughout Austin and surrounding communities. Call to discuss your plumbing problem or request service.
+            Blue Dragon Plumbing handles leak repair, drain cleaning, water heaters and fixture repair for homes in Austin and nearby communities.
           </p>
           <div class="hero__actions">
             <a class="btn btn--primary btn--large" href="tel:+15129472491">
               Call (512) 947-2491
             </a>
-            <a class="btn btn--secondary btn--large" href="#contact">
+            <a class="btn btn--secondary btn--large" href="#request-form">
               Request Service
             </a>
           </div>
           <div class="hero__trust">
             <span class="trust-pill">Local Austin service</span>
-            <span class="trust-pill">Phone support</span>
-            <span class="trust-pill">Service requests available</span>
+            <span class="trust-pill">Call for availability</span>
+            <span class="trust-pill">Service requests open</span>
           </div>
         </div>
-        <div class="hero__media">
-          <div class="photo-placeholder">
-            <span class="photo-placeholder__label">Replace with real Blue Dragon Plumbing photo</span>
-            <span class="photo-placeholder__hint">Service truck, job site, or team photo</span>
+
+        <div class="hero__form" id="request-form">
+          <div class="form-card">
+            <h2>Request Service</h2>
+            <p class="form-card__hint">Fill out the form and we will contact you to discuss your plumbing needs.</p>
+
+            <form class="contact-form" id="service-form" novalidate>
+              <div class="form-group">
+                <label for="name">Name <span class="required" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" required autocomplete="name">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone <span class="required" aria-hidden="true">*</span></label>
+                <input type="tel" id="phone" name="phone" required autocomplete="tel">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email">
+              </div>
+
+              <div class="form-group">
+                <label for="service">Service needed</label>
+                <select id="service" name="service">
+                  <option value="">Select a service</option>
+                  <option value="leak-repair">Leak Repair</option>
+                  <option value="drain-cleaning">Drain Cleaning</option>
+                  <option value="water-heater">Water Heater</option>
+                  <option value="fixture-repair">Fixture Repair</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="3"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--full">Send Request</button>
+            </form>
+
+            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+              <p>Thank you. Your request has been recorded for this demo.</p>
+              <p class="form-success__note">A backend service (such as Formspree or Netlify Forms) must be connected before this form can send real messages.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -102,26 +173,26 @@
         </div>
 
         <div class="services-grid">
-          <div class="service-item">
+          <article class="service-item">
             <h3>Leak Repair</h3>
             <p>Leak detection and repair for faucets, pipes and common household plumbing leaks.</p>
-          </div>
-          <div class="service-item">
+          </article>
+          <article class="service-item">
             <h3>Drain Cleaning</h3>
-            <p>Clear clogged sinks, tubs, showers and other household drains.</p>
-          </div>
-          <div class="service-item">
-            <h3>Water Heater Service</h3>
-            <p>Repair and replacement for common residential water heater problems.</p>
-          </div>
-          <div class="service-item">
-            <h3>Fixture Repair & Installation</h3>
-            <p>Repair or installation for faucets, toilets and other plumbing fixtures.</p>
-          </div>
+            <p>Clog removal and drain cleaning for kitchen, bathroom and household drains.</p>
+          </article>
+          <article class="service-item">
+            <h3>Water Heaters</h3>
+            <p>Water heater repair and replacement for residential units.</p>
+          </article>
+          <article class="service-item">
+            <h3>Fixture Repair</h3>
+            <p>Repair and replacement for faucets, toilets and common plumbing fixtures.</p>
+          </article>
         </div>
 
         <div class="services__cta">
-          <a class="btn btn--primary" href="tel:+15129472491">Call for Plumbing Service</a>
+          <a class="btn btn--primary" href="tel:+15129472491">Call for Service</a>
         </div>
       </div>
     </section>
@@ -145,57 +216,11 @@
     <!-- Contact -->
     <section class="contact" id="contact">
       <div class="container">
-        <div class="contact__grid">
-          <div class="contact__info">
-            <h2>Request Plumbing Service</h2>
-            <p>Fill out the form and we will contact you to discuss your plumbing needs. You can also call us directly.</p>
-            <div class="contact__phone-block">
-              <span>Prefer to call?</span>
-              <a href="tel:+15129472491" class="contact__phone">(512) 947-2491</a>
-            </div>
-          </div>
-
-          <div class="contact__form-wrap">
-            <form class="contact-form" id="service-form" novalidate>
-              <div class="form-group">
-                <label for="name">Name <span class="required">*</span></label>
-                <input type="text" id="name" name="name" required>
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone <span class="required">*</span></label>
-                <input type="tel" id="phone" name="phone" required>
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
-              </div>
-
-              <div class="form-group">
-                <label for="service">Service needed</label>
-                <select id="service" name="service">
-                  <option value="">Select a service</option>
-                  <option value="leak-repair">Leak Repair</option>
-                  <option value="drain-cleaning">Drain Cleaning</option>
-                  <option value="water-heater">Water Heater</option>
-                  <option value="fixture-repair">Fixture Repair</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-              </div>
-
-              <button type="submit" class="btn btn--primary btn--full">Request Service</button>
-            </form>
-
-            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
-              <p>Thank you. Your request has been received.</p>
-              <p class="form-success__note">This is a demo form. A backend service such as Formspree or Netlify Forms must be connected before this form can send real messages.</p>
-            </div>
+        <div class="contact__inner">
+          <h2>Contact Blue Dragon Plumbing</h2>
+          <p>Call us to discuss your plumbing needs or request service through the form above.</p>
+          <div class="contact__phone-block">
+            <a href="tel:+15129472491" class="contact__phone">(512) 947-2491</a>
           </div>
         </div>
       </div>
@@ -212,14 +237,14 @@
       <div class="footer__contact">
         <a href="tel:+15129472491">(512) 947-2491</a>
       </div>
-      <div class="footer__nav">
+      <nav class="footer__nav" aria-label="Footer navigation">
         <a href="#services">Services</a>
-        <a href="#service-area">Service Area</a>
+        <a href="#service-area">Service Areas</a>
         <a href="#contact">Contact</a>
-      </div>
+      </nav>
     </div>
     <div class="container footer__bottom">
-      <p>Demo concept — business information should be verified before production use.</p>
+      <p>Demo website concept — not the official website of Blue Dragon Plumbing.</p>
     </div>
   </footer>
 
